@@ -6,8 +6,13 @@ Uma biblioteca Python abrangente para construir agentes de IA com integração d
 
 - **Multi-provedor LLM**: AWS Bedrock (principal), OpenAI, Ollama, Google Gemini
 - **Conversão automática de APIs**: Transforme especificações OpenAPI em ferramentas LangGraph
-- **Base vetorial integrada**: Suporte nativo ao ChromaDB
+- **Base vetorial integrada**: Suporte nativo ao ChromaDB e múltiplos provedores
 - **Orquestração de agentes**: Baseado em LangGraph para fluxos complexos
+- **Sistema de avaliação**: Framework OpenAI/evals para validação de prompts
+- **Comparação de modelos**: Compare performance entre diferentes LLMs
+- **Reasoning avançado**: Chain-of-thought e step-by-step reasoning
+- **Observabilidade completa**: Tracing, métricas e visualização de execuções
+- **Estratégias de chunking**: Processamento inteligente de textos grandes
 - **Logging profissional**: Sistema de logs estruturado e colorido
 - **Fácil instalação**: Disponível via pip
 
