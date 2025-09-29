@@ -1,0 +1,10 @@
+include README.md
+include LICENSE
+include CHANGELOG.md
+include requirements.txt
+recursive-include agentCore *.py
+recursive-include agentCore *.json
+recursive-include agentCore *.yaml
+recursive-include agentCore *.yml
+recursive-exclude agentCore *.pyc
+recursive-exclude agentCore __pycache__

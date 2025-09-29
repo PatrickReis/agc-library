@@ -1,0 +1,135 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agentcore"
+version = "1.0.0"
+description = "A comprehensive library for building AI agents with tool integration and multi-provider LLM support"
+authors = [{name = "Patrick Reis", email = "patrick.reis1@gmail.com"}]
+license = {text = "MIT"}
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["ai", "agents", "llm", "tools", "langchain", "langgraph"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = [
+    "langchain-core>=0.1.0",
+    "langchain-chroma>=0.1.0",
+    "langchain-aws>=0.1.0",
+    "langchain-openai>=0.1.0",
+    "langchain-ollama>=0.1.0",
+    "langchain-google-genai>=0.1.0",
+    "langgraph>=0.1.0",
+    "boto3>=1.34.0",
+    "chromadb>=0.4.0",
+    "python-dotenv>=1.0.0",
+    "requests>=2.31.0",
+    "colorlog>=6.7.0",
+    "pydantic>=2.0.0",
+    "numpy>=1.24.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-cov>=4.0.0",
+    "black>=23.0.0",
+    "isort>=5.12.0",
+    "flake8>=6.0.0",
+    "mypy>=1.0.0",
+]
+aws = [
+    "boto3>=1.34.0",
+    "langchain-aws>=0.1.0",
+]
+openai = [
+    "langchain-openai>=0.1.0",
+]
+ollama = [
+    "langchain-ollama>=0.1.0",
+]
+google = [
+    "langchain-google-genai>=0.1.0",
+]
+
+[project.scripts]
+agentcore = "agentCore.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/your-org/agent-core"
+Repository = "https://github.com/your-org/agent-core.git"
+Documentation = "https://agent-core.readthedocs.io"
+"Bug Reports" = "https://github.com/your-org/agent-core/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["agentCore*"]
+exclude = ["tests*"]
+
+[tool.black]
+line-length = 88
+target-version = ['py38']
+include = '\.pyi?$'
+extend-exclude = '''
+/(
+  # directories
+  \.eggs
+  | \.git
+  | \.hg
+  | \.mypy_cache
+  | \.tox
+  | \.venv
+  | build
+  | dist
+)/
+'''
+
+[tool.isort]
+profile = "black"
+line_length = 88
+multi_line_output = 3
+include_trailing_comma = true
+force_grid_wrap = 0
+use_parentheses = true
+ensure_newline_before_comments = true
+
+[tool.mypy]
+python_version = "3.8"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = true
+disallow_incomplete_defs = true
+check_untyped_defs = true
+disallow_untyped_decorators = true
+no_implicit_optional = true
+warn_redundant_casts = true
+warn_unused_ignores = true
+warn_no_return = true
+warn_unreachable = true
+strict_equality = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]
+python_classes = ["Test*"]
+python_functions = ["test_*"]
+addopts = "-v --tb=short --strict-markers"
+markers = [
+    "slow: marks tests as slow (deselect with '-m \"not slow\"')",
+    "integration: marks tests as integration tests",
+]
