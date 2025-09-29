@@ -1,0 +1,84 @@
+{
+  "trace": {
+    "trace_id": "b8de733c-1904-485a-8a89-0e9a8c4402aa",
+    "start_time": 1759170811.6739323,
+    "end_time": 1759170812.1247382,
+    "agent_id": "complex_operation_demo",
+    "total_duration_ms": 450.8059024810791,
+    "events": [
+      {
+        "trace_id": "b8de733c-1904-485a-8a89-0e9a8c4402aa",
+        "event_id": "9819c368-9634-481d-a7fe-44913a139ea9",
+        "parent_id": "441804c5-7988-44ea-9c9d-ef5329055a16",
+        "timestamp": 1759170811.7741554,
+        "event_type": "data_loaded",
+        "agent_id": "complex_operation_demo",
+        "data": {
+          "records": 1000
+        },
+        "duration_ms": null
+      },
+      {
+        "trace_id": "b8de733c-1904-485a-8a89-0e9a8c4402aa",
+        "event_id": "441804c5-7988-44ea-9c9d-ef5329055a16",
+        "parent_id": null,
+        "timestamp": 1759170811.6739786,
+        "event_type": "data_preparation",
+        "agent_id": "complex_operation_demo",
+        "data": {},
+        "duration_ms": 100.21376609802246
+      },
+      {
+        "trace_id": "b8de733c-1904-485a-8a89-0e9a8c4402aa",
+        "event_id": "8aa39d19-e452-47fc-a0e3-549994cec67d",
+        "parent_id": null,
+        "timestamp": 1759170811.7742834,
+        "event_type": "llm_call",
+        "agent_id": "complex_operation_demo",
+        "data": {
+          "model": "bedrock"
+        },
+        "duration_ms": 200.09684562683105
+      },
+      {
+        "trace_id": "b8de733c-1904-485a-8a89-0e9a8c4402aa",
+        "event_id": "fa50b08e-3049-420d-9d75-362eeed6a17e",
+        "parent_id": null,
+        "timestamp": 1759170811.9745471,
+        "event_type": "tool_call",
+        "agent_id": "complex_operation_demo",
+        "data": {
+          "tool_name": "weather_api"
+        },
+        "duration_ms": 150.15769004821777
+      }
+    ],
+    "metadata": {}
+  },
+  "analysis": {
+    "agent_id": "complex_operation_demo",
+    "summary": {
+      "total_executions": 1,
+      "completed_executions": 1,
+      "avg_duration_ms": 450.8059024810791,
+      "success_rate": 1.0
+    },
+    "event_patterns": {
+      "data_loaded": 1,
+      "data_preparation": 1,
+      "llm_call": 1,
+      "tool_call": 1
+    },
+    "tool_usage": {
+      "weather_api": 1
+    },
+    "most_used_tools": [
+      [
+        "weather_api",
+        1
+      ]
+    ]
+  },
+  "bottlenecks": [],
+  "export_timestamp": 1759170812.124924
+}

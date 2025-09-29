@@ -11,30 +11,22 @@ This module provides a unified interface for various vector storage backends:
 """
 
 from .vector_store_factory import VectorStoreFactory, get_vector_store
-from .providers.aws_provider import AWSVectorProvider
-from .providers.qdrant_provider import QdrantVectorProvider
-from .providers.chroma_provider import ChromaVectorProvider
-from .providers.pinecone_provider import PineconeVectorProvider
-from .providers.faiss_provider import FAISSVectorProvider
-from .chunking.chunking_strategies import (
-    ChunkingStrategy,
-    RecursiveChunker,
-    SemanticChunker,
-    SlidingWindowChunker,
-    get_chunking_strategy
-)
+from .base_provider import VectorStoreProvider, StorageType, Document, SearchResult
+
+# Only import providers that exist
+try:
+    from .providers.aws_provider import AWSVectorProvider
+except ImportError:
+    AWSVectorProvider = None
 
 __all__ = [
     "VectorStoreFactory",
     "get_vector_store",
-    "AWSVectorProvider",
-    "QdrantVectorProvider",
-    "ChromaVectorProvider",
-    "PineconeVectorProvider",
-    "FAISSVectorProvider",
-    "ChunkingStrategy",
-    "RecursiveChunker",
-    "SemanticChunker",
-    "SlidingWindowChunker",
-    "get_chunking_strategy"
+    "VectorStoreProvider",
+    "StorageType",
+    "Document",
+    "SearchResult"
 ]
+
+if AWSVectorProvider:
+    __all__.append("AWSVectorProvider")

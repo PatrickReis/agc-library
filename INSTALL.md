@@ -314,6 +314,56 @@ pip cache purge
 # Reinstalar dependências
 pip install --force-reinstall agentcore
 ```
+# 🔧 Instalação Local
+Opção 1: Instalação em modo desenvolvimento (Recomendado)
+# No diretório do projeto agc-lib
+pip install -e .
+O -e (editable) permite que mudanças no código sejam refletidas imediatamente sem reinstalar.
+Opção 2: Instalação local direta
+# No diretório do projeto
+pip install .
+Opção 3: Build e instalação
+# Construir distribuição
+python -m build
+
+# Instalar do arquivo gerado
+pip install dist/agentcore-1.0.0-py3-none-any.whl
+📦 Verificar Instalação
+Após instalar, teste:
+import agentCore
+from agentCore.providers import get_llm
+from agentCore.utils import api2tool
+
+print("AgentCore instalado com sucesso!")
+🛠️ Para Desenvolvimento
+Se você vai desenvolver no projeto:
+# Instalar com dependências de desenvolvimento
+pip install -e .[dev]
+
+# Instalar todas as dependências opcionais
+pip install -e .[aws,openai,ollama,google,dev]
+🐍 Ambiente Virtual (Recomendado)
+# Criar ambiente virtual
+python -m venv venv
+
+# Ativar (Linux/Mac)
+source venv/bin/activate
+
+# Ativar (Windows)
+venv\Scripts\activate
+
+# Instalar projeto
+pip install -e .
+✅ Verificação Final
+# Testar CLI
+agentcore --help
+
+# Executar demo
+python e2e_demo.py
+
+# Executar testes
+pytest tests/ -v
+
 
 ## 📚 Próximos Passos
 
@@ -331,4 +381,4 @@ Se encontrar problemas durante a instalação:
 
 - Verifique os [Issues no GitHub](https://github.com/your-org/agent-core/issues)
 - Consulte a [Documentação](https://agent-core.readthedocs.io)
-- Abra um novo issue com detalhes do erro
+
