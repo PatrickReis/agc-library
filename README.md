@@ -9,14 +9,14 @@ Biblioteca Python enterprise-ready para construção de agentes de IA com orques
 ## 🌟 Características Principais v2.0
 
 ### 🔧 **Multi-Framework Orchestration**
-- **CrewAI**: Cenários empresariais complexos com multi-agentes
+- **CrewAI**: Cenários  complexos com multi-agentes
 - **LangGraph**: Fluxos simples e sequenciais
 - **AutoGen**: Conversas e execução de código
 - **Auto-seleção**: Escolha automática baseada no caso de uso
 
 ### 🗄️ **Multi-Provider Vector Storage**
-- **AWS OpenSearch**: Produção empresarial escalável
-- **AWS Kendra**: Busca empresarial com ML
+- **AWS OpenSearch**: Produção  escalável
+- **AWS Kendra**: Busca com ML
 - **AWS S3 + FAISS**: Solução econômica
 - **Qdrant**: Vector search nativo e rápido
 - **ChromaDB**: Desenvolvimento local
@@ -120,12 +120,12 @@ tools = api2tool("./api.json")
 print(f"Geradas {len(tools)} ferramentas")
 ```
 
-### 🏢 Configuração Empresarial
+### 🏢 Configuração
 
 ```python
 from agentCore import auto_configure_vector_store, get_orchestrator
 
-# Auto-configuração para ambiente empresarial
+# Auto-configuração para ambiente PRD
 store = auto_configure_vector_store(
     use_case="enterprise",
     environment="production",
@@ -277,7 +277,7 @@ print(f"Execuções: {metrics['total_executions']}")
 
 ## 📚 Exemplos Práticos
 
-### 🎯 Exemplo 1: Setup Empresarial Completo
+### 🎯 Exemplo 1: Setup Completo
 
 ```python
 from agentCore import (
@@ -305,12 +305,12 @@ orchestrator = get_orchestrator("auto",
 
 llm = get_llm()  # Bedrock por padrão
 
-# 2. Carregar APIs empresariais
+# 2. Carregar APIs 
 weather_tools = api2tool("./weather_api.json")
 crm_tools = api2tool("./crm_api.json")
 analytics_tools = api2tool("./analytics_api.json")
 
-# 3. Criar agente empresarial
+# 3. Criar agente 
 all_tools = []
 for tools in [weather_tools, crm_tools, analytics_tools]:
     all_tools.extend([tool['function'] for tool in tools])
@@ -509,7 +509,7 @@ graph TD
     C --> D[Avaliar Orçamento]
     D --> E{Tipo de Setup?}
     E -->|Desenvolvimento| F[ChromaDB + LangGraph + Ollama]
-    E -->|Empresa| G[AWS OpenSearch + CrewAI + Bedrock]
+    E -->|PRD| G[AWS OpenSearch + CrewAI + Bedrock]
     E -->|Pesquisa| H[Qdrant + Semantic Chunking + Bedrock]
     F --> I[Configuração Aplicada]
     G --> I
