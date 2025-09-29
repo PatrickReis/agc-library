@@ -1,4 +1,4 @@
-# AgentCore v2.0 🚀
+# AgentCore Library v2.0 🚀
 
 Biblioteca Python enterprise-ready para construção de agentes de IA com orquestração multi-framework, armazenamento vetorial multi-provedor e capacidades avançadas de avaliação.
 
@@ -731,32 +731,9 @@ twine check dist/*
 
 MIT License - veja o arquivo [LICENSE](LICENSE) para detalhes.
 
-## 🤝 Contribuindo
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add: AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-### 📋 Guidelines
-- Siga o padrão de código existente
-- Adicione testes para novas funcionalidades
-- Atualize a documentação quando necessário
-- Use conventional commits
-
-## 📞 Suporte
-
-- **🐛 Issues**: [GitHub Issues](https://github.com/your-org/agent-core/issues)
-- **💬 Discussões**: [GitHub Discussions](https://github.com/your-org/agent-core/discussions)
-- **📖 Documentação**: Veja exemplos acima
-- **📧 Contato**: [email@exemplo.com](mailto:email@exemplo.com)
-
----
-
 ## 🎉 Conclusão
 
-A **AgentCore v2.0** é uma biblioteca enterprise-ready que resolve todos os desafios de produção:
+A **AgentCore Lib v2.0** é uma biblioteca enterprise-ready que resolve todos os desafios de produção:
 
 - ✅ **Flexibilidade**: Multi-framework, multi-provider, multi-estratégia
 - ✅ **Escalabilidade**: AWS-native para produção enterprise
