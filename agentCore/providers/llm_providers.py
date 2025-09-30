@@ -116,9 +116,126 @@ class LLMFactory:
         except Exception as e:
             raise ValueError(f"Erro ao inicializar provedor '{provider_name}': {str(e)}")
 
-def get_llm(provider_name: Optional[str] = None):
-    provider = LLMFactory.create_provider(provider_name)
-    return provider.get_llm()
+def get_llm(provider_name: Optional[str] = None, provider: Optional[str] = None,
+           model: Optional[str] = None, temperature: Optional[float] = None,
+           max_tokens: Optional[int] = None):
+    """
+    Cria um LLM com configurações personalizadas.
+
+    Args:
+        provider_name: Nome do provedor (backward compatibility)
+        provider: Nome do provedor (novo parâmetro)
+        model: Modelo específico a usar
+        temperature: Temperatura para geração
+        max_tokens: Máximo de tokens
+    """
+    # Usar 'provider' se fornecido, senão usar 'provider_name'
+    provider_to_use = provider if provider is not None else provider_name
+
+    provider_instance = LLMFactory.create_provider(provider_to_use)
+
+    # Para diferentes provedores, aplicar configurações específicas
+    if provider_to_use == "ollama":
+        return _create_ollama_llm(provider_instance, model, temperature, max_tokens)
+    elif provider_to_use == "openai":
+        return _create_openai_llm(provider_instance, model, temperature, max_tokens)
+    elif provider_to_use == "gemini":
+        return _create_gemini_llm(provider_instance, model, temperature, max_tokens)
+    elif provider_to_use == "bedrock":
+        return _create_bedrock_llm(provider_instance, model, temperature, max_tokens)
+    else:
+        # Fallback para comportamento padrão
+        return provider_instance.get_llm()
+
+def _create_ollama_llm(provider_instance, model=None, temperature=None, max_tokens=None):
+    """Cria LLM Ollama com configurações personalizadas."""
+    try:
+        from langchain_ollama import ChatOllama
+
+        kwargs = {
+            "model": model or provider_instance.model,
+            "base_url": provider_instance.base_url
+        }
+
+        if temperature is not None:
+            kwargs["temperature"] = temperature
+        if max_tokens is not None:
+            kwargs["num_predict"] = max_tokens  # Ollama usa 'num_predict'
+
+        return ChatOllama(**kwargs)
+    except ImportError:
+        raise ImportError("langchain-community e langchain-ollama não estão instalados.")
+
+def _create_openai_llm(provider_instance, model=None, temperature=None, max_tokens=None):
+    """Cria LLM OpenAI com configurações personalizadas."""
+    try:
+        from langchain_openai import ChatOpenAI
+
+        kwargs = {
+            "model": model or provider_instance.model,
+            "api_key": provider_instance.api_key
+        }
+
+        if temperature is not None:
+            kwargs["temperature"] = temperature
+        if max_tokens is not None:
+            kwargs["max_tokens"] = max_tokens
+
+        return ChatOpenAI(**kwargs)
+    except ImportError:
+        raise ImportError("langchain-openai não está instalado.")
+
+def _create_gemini_llm(provider_instance, model=None, temperature=None, max_tokens=None):
+    """Cria LLM Gemini com configurações personalizadas."""
+    try:
+        from langchain_google_genai import ChatGoogleGenerativeAI
+
+        kwargs = {
+            "model": model or provider_instance.model,
+            "google_api_key": provider_instance.api_key
+        }
+
+        if temperature is not None:
+            kwargs["temperature"] = temperature
+        if max_tokens is not None:
+            kwargs["max_output_tokens"] = max_tokens  # Gemini usa 'max_output_tokens'
+
+        return ChatGoogleGenerativeAI(**kwargs)
+    except ImportError:
+        raise ImportError("langchain-google-genai não está instalado.")
+
+def _create_bedrock_llm(provider_instance, model=None, temperature=None, max_tokens=None):
+    """Cria LLM Bedrock com configurações personalizadas."""
+    try:
+        from langchain_aws import ChatBedrock
+
+        credentials = {}
+        if provider_instance.aws_access_key_id:
+            credentials["aws_access_key_id"] = provider_instance.aws_access_key_id
+        if provider_instance.aws_secret_access_key:
+            credentials["aws_secret_access_key"] = provider_instance.aws_secret_access_key
+        if provider_instance.aws_session_token:
+            credentials["aws_session_token"] = provider_instance.aws_session_token
+
+        kwargs = {
+            "model_id": model or provider_instance.model,
+            "region_name": provider_instance.region_name,
+            **credentials
+        }
+
+        # Bedrock usa model_kwargs para configurações específicas
+        model_kwargs = {}
+        if temperature is not None:
+            model_kwargs["temperature"] = temperature
+        if max_tokens is not None:
+            model_kwargs["max_tokens"] = max_tokens
+
+        if model_kwargs:
+            kwargs["model_kwargs"] = model_kwargs
+
+        return ChatBedrock(**kwargs)
+    except ImportError:
+        raise ImportError("langchain-aws não está instalado. Execute: pip install langchain-aws boto3")
 
 def get_embeddings(provider_name: Optional[str] = None):
     provider = LLMFactory.create_provider(provider_name)
