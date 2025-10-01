@@ -315,7 +315,7 @@ def demo_crew_agentes():
             6. PRÓXIMOS PASSOS: Lista clara e acionável de ações imediatas
 
             FORMATO: Documento executivo estruturado com seções claras e recomendações específicas.
-            NUNCA pare no meio da análise - sempre forneça um documento COMPLETO.""",
+            NUNCA pare no meio da análise - sempre forneça um documento COMPLETO .""",
             agent=sintetizador,
             expected_output="Relatório estratégico executivo completo com síntese integrada, roadmap detalhado e recomendações acionáveis",
             context=[tarefa_analise_financeira, tarefa_pesquisa_mercado, tarefa_compliance]

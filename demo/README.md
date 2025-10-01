@@ -217,24 +217,6 @@ export AWS_SECRET_ACCESS_KEY=sua_chave_secreta
 - **Foco**: Qualidade garantida, otimização científica, custos otimizados
 - **Resultado**: Sistema production-ready de classe mundial
 
-## 🛠️ Suporte e Troubleshooting
-
-### **Problemas Comuns**
-
-#### **"Modelo não responde"**
-- Verificar credenciais nos .env
-- Testar conectividade de rede
-- Validar limites de API
-
-#### **"Erro de importação"**
-- Instalar dependências específicas
-- Verificar versão Python (>= 3.8)
-- Ativar ambiente virtual
-
-#### **"Vector store falha"**
-- Verificar permissões de escrita
-- Limpar databases antigos
-- Validar configurações de embedding
 
 ### **Recursos de Ajuda**
 
@@ -245,8 +227,7 @@ export AWS_SECRET_ACCESS_KEY=sua_chave_secreta
 
 #### **Comunidade**
 - GitHub Issues: Para bugs e features
-- Discord: Para suporte em tempo real
-- Newsletter: Updates e best practices
+
 
 ## 🔮 Próximos Passos
 
@@ -254,7 +235,7 @@ export AWS_SECRET_ACCESS_KEY=sua_chave_secreta
 1. **Escolha seu perfil** (Atendimento, Desenvolvimento, Arquitetura, Liderança)
 2. **Siga a jornada recomendada** para seu perfil
 3. **Leia as explicações executivas** antes de implementar
-4. **Execute os demos** com dados de teste de adquirência
+4. **Execute os demos** com dados de teste da Cielo
 
 ### **Customização para Seu Negócio**
 1. **Adapte exemplos**: Use seus manuais POS, políticas e tabelas comerciais
@@ -262,18 +243,9 @@ export AWS_SECRET_ACCESS_KEY=sua_chave_secreta
 3. **Implemente Evals**: Valide qualidade com casos reais do seu negócio
 4. **Otimize continuamente**: A/B testing, model selection, chunking
 
-### **Expansões Avançadas para Adquirência**
+### **Expansões Avançadas para Cielo**
 - **Análise preditiva**: Previsão de chargebacks e fraude
 - **Pricing dinâmico**: Otimização de MDR em tempo real
 - **Customer success**: Análise de satisfação e churn de merchants
 - **Forecast**: Projeções de volume e receita
 
----
-
-**🎉 Bem-vindo à nova era de IA para Adquirência!**
-
-Estes cenários foram desenvolvidos especificamente para o segmento de pagamentos, com exemplos práticos de merchants, terminais POS, liquidação, chargebacks e compliance regulatório.
-
-**Comece pelo Cenário 1** e evolua conforme a necessidade do seu negócio.
-
-**📖 Leia as explicações executivas** - cada arquivo `explicacao_executiva.md` contém casos de uso detalhados, exemplos práticos e considerações específicas de adquirência.
