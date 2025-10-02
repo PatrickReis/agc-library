@@ -93,7 +93,7 @@ Sistema automatizado de validação de qualidade de respostas de IA, similar a t
 Arte e ciência de escrever instruções (prompts) para LLMs gerarem respostas de qualidade.
 
 **Exemplo Básico**: "Me explique MDR"
-**Exemplo Otimizado**: "Você é especialista em adquirência. Explique MDR para um merchant iniciante, incluindo: 1) O que é, 2) Como é calculado, 3) Faixas típicas por modalidade"
+**Exemplo Otimizado**: "Você é especialista em adquirência. Explique MDR para um estabelecimento comercial iniciante, incluindo: 1) O que é, 2) Como é calculado, 3) Faixas típicas por modalidade"
 
 #### **Tools/Ferramentas**
 Capacidades adicionais que você dá ao agente de IA para **executar ações**:
@@ -113,7 +113,7 @@ Capacidades adicionais que você dá ao agente de IA para **executar ações**:
 
 O segmento da Cielo enfrenta desafios crescentes:
 
-1. **Escala de Atendimento**: Dezenas de milhares de merchants, força de vendas distribuída, operações 24/7
+1. **Escala de Atendimento**: Dezenas de milhares de Estabelecimentos comerciais, força de vendas distribuída, operações 24/7
 2. **Complexidade Técnica**: Terminais POS, integrações, protocolos de bandeiras, códigos de resposta
 3. **Regulamentação Intensa**: Banco Central, PCI-DSS, LGPD, normas de arranjos de pagamento
 4. **Pressão Comercial**: Competição agressiva, margens comprimidas, necessidade de eficiência
@@ -149,7 +149,7 @@ Implementações completas de IA em adquirência geram:
 
 - **60-70% redução** em escalações para atendimento humano
 - **40-50% aumento** em taxa de resolução no primeiro contato
-- **30-40% melhoria** em satisfação de merchants (NPS)
+- **30-40% melhoria** em satisfação dos Estabelecimentos comerciais (NPS)
 - **50-60% redução** em custo por resolução
 - **Zero risco** de informação desatualizada ou inconsistente
 
@@ -197,9 +197,10 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 1: Chat Simples**
 **Tecnologia**: LLM direto (OpenAI, Anthropic, Google)
+**Cases Cielo**: Copilot Chat / Copilot Teams
 
 **Quando Usar**:
-- ✅ Atendimento básico a merchants
+- ✅ Atendimento básico a estabelecimento comercial
 - ✅ FAQ simples sobre produtos e serviços
 - ✅ Prova de conceito rápida (2-3 semanas)
 - ✅ Orçamento limitado
@@ -210,16 +211,16 @@ Baixa│ 🔰 Cenário 1
 - ❌ Respostas devem ser auditáveis (usar Cenário 2 + 6)
 
 **Casos de Uso**:
-- Merchant perguntando sobre prazos de liquidação genéricos
+- EC perguntando sobre prazos de liquidação genéricos
 - Vendedor consultando conceitos básicos de produtos
 - Suporte interno com dúvidas simples
-
-**Complexidade**: ⭐ | **Tempo Impl.**: 1-2 semanas | **Custo**: Baixo
 
 ---
 
 #### **Cenário 2: RAG (Base de Conhecimento)**
 **Tecnologia**: LangChain + Vector DB (Chroma, Pinecone)
+**Cases Cielo**: Cici, Guru 
+
 
 **Quando Usar**:
 - ✅ Possui documentação extensa (manuais, políticas, procedimentos)
@@ -238,8 +239,6 @@ Baixa│ 🔰 Cenário 1
 - Circulares do Banco Central e normas PCI-DSS
 - Procedimentos operacionais internos
 
-**Complexidade**: ⭐⭐ | **Tempo Impl.**: 2-3 semanas | **Custo**: Médio
-
 **Tecnologias Específicas**:
 - **Vector DB**: ChromaDB (dev), Pinecone (prod), AWS OpenSearch (enterprise)
 - **Chunking**: 500-1000 chars, paragraph-based
@@ -249,6 +248,7 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 3: RAG + Tools (Integração)**
 **Tecnologia**: LangChain + Tools + APIs
+**Cases Cielo**: Copilot Chat / Copilot Teams
 
 **Quando Usar**:
 - ✅ Necessita combinar conhecimento interno + dados de sistemas
@@ -262,16 +262,14 @@ Baixa│ 🔰 Cenário 1
 - ❌ Ações críticas sem validação humana (implementar aprovações)
 
 **Casos de Uso**:
-- Merchant consultando transação específica + políticas de liquidação
+- EC consultando transação específica + políticas de liquidação
 - Vendedor consultando proposta no CRM + tabela comercial
 - Operador analisando chargeback (dados da transação + políticas)
 - Abertura automatizada de chamados técnicos
 
-**Complexidade**: ⭐⭐⭐ | **Tempo Impl.**: 4-6 semanas | **Custo**: Médio-Alto
-
 **Tools Comuns**:
 - API Transações (consulta vendas, liquidações)
-- API Cadastro (dados de merchants)
+- API Cadastro (dados do EC)
 - API CRM (propostas, pipeline comercial)
 - Sistema de Tickets (abertura e acompanhamento)
 - Calculadora de Taxas (simulações)
@@ -282,6 +280,8 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 4: LangGraph (Workflows Condicionais)**
 **Tecnologia**: LangGraph (LangChain extension)
+**Cases Cielo**: Chargeback
+
 
 **Quando Usar**:
 - ✅ Processos com múltiplas decisões condicionais
@@ -299,8 +299,6 @@ Baixa│ 🔰 Cenário 1
 - **Análise de Chargeback**: Decisão de contestar baseada em múltiplos fatores
 - **Gestão de Risco**: Score composto de múltiplas fontes, ações condicionais
 - **Investigação de Fraude**: Fluxo adapta conforme padrões detectados
-
-**Complexidade**: ⭐⭐⭐⭐ | **Tempo Impl.**: 6-8 semanas | **Custo**: Alto
 
 **Estrutura de Workflow**:
 ```
@@ -321,6 +319,8 @@ Entrada → Classificação
 
 #### **Cenário 5: CrewAI (Equipe de Agentes Especializados)**
 **Tecnologia**: CrewAI Framework
+**Cases Cielo**: Produtos de Prazo (Agno)
+
 
 **Quando Usar**:
 - ✅ Problemas muito complexos que beneficiam de múltiplas perspectivas
@@ -334,7 +334,7 @@ Entrada → Classificação
 - ❌ Orçamento muito limitado (custo maior por múltiplos LLM calls)
 
 **Casos de Uso**:
-- **Credenciamento complexo**: Merchant de alto risco ou alto valor
+- **Credenciamento complexo**: EC de alto risco ou alto valor
   - Agente Comercial analisa potencial de receita
   - Agente Risco analisa perfil de fraude e crédito
   - Agente Compliance valida regulamentação
@@ -347,13 +347,11 @@ Entrada → Classificação
   - Especialista em Compliance prepara documentação
   - Coordenador recomenda ações
 
-- **Análise estratégica de merchant**:
+- **Análise estratégica do Estabelecimento Comercial**:
   - Customer Success analisa satisfação e churn
   - Comercial analisa upsell
   - Risco analisa exposição
   - Coordenador recomenda estratégia de relacionamento
-
-**Complexidade**: ⭐⭐⭐⭐⭐ | **Tempo Impl.**: 8-12 semanas | **Custo**: Muito Alto
 
 **Estrutura de Equipe Típica**:
 - **Agente de Transações**: Expert em processamento, liquidação, conciliação
@@ -384,8 +382,6 @@ Entrada → Classificação
 - **Monitoramento contínuo**: Detectar degradação de qualidade
 - **Regressão**: Garantir que mudanças não quebraram funcionalidades
 - **Compliance**: Evidência objetiva de qualidade para auditores
-
-**Complexidade**: ⭐⭐ | **Tempo Impl.**: 3-4 semanas | **Custo**: Médio
 
 **Categorias de Teste para Adquirência**:
 - **Transações**: Precisão de valores, prazos, taxas (threshold: 95%)
@@ -422,8 +418,6 @@ Entrada → Classificação
 - **Otimização de RAG**: Testar estratégias de chunking, retrieval, re-ranking
 - **Cost Optimization**: Encontrar configuração de melhor custo-benefício
 
-**Complexidade**: ⭐⭐⭐⭐ | **Tempo Impl.**: 4-6 semanas | **Custo**: Alto
-
 **Experimentos Típicos**:
 - Prompt Engineering: Testar 3-5 variações de instrução
 - Model Selection: Comparar 4-6 modelos diferentes
@@ -454,8 +448,6 @@ Entrada → Classificação
 - **Compliance Zero Erro**: Anti-alucinação máxima (Claude-3 Opus)
 - **Operações Internas**: Modelo local ou budget (Llama-3.1)
 
-**Complexidade**: ⭐⭐⭐ | **Tempo Impl.**: 4-5 semanas | **Custo**: Médio
-
 **Dimensões de Análise**:
 1. **Qualidade**: Precisão, reasoning, anti-alucinação
 2. **Performance**: Latência, throughput, confiabilidade
@@ -464,35 +456,20 @@ Entrada → Classificação
 
 **Matriz de Decisão** (valores baseados em preços de API Jan/2025):
 ```
-┌─────────────────────┬──────────────┬───────────────┬──────────────┬─────────────┐
-│ Caso de Uso         │ Prioridade   │ Modelo        │ Volume/Mês   │ Custo/Mês   │
-├─────────────────────┼──────────────┼───────────────┼──────────────┼─────────────┤
-│ Atendimento Merchant│ Volume+Custo │ Claude-3 Son. │ 200.000      │ R$ 8.400    │
-│ Análise de Risco    │ Precisão     │ GPT-4+Opus    │ 5.000        │ R$ 3.200    │
-│ Força de Vendas     │ Balance      │ Claude-3 Son. │ 30.000       │ R$ 1.800    │
-│ Compliance          │ Zero Erro    │ Claude-3 Opus │ 1.000        │ R$ 450      │
-│ Operações           │ Custo        │ Gemini Pro    │ 50.000       │ R$ 720      │
-├─────────────────────┴──────────────┴───────────────┴──────────────┼─────────────┤
-│ TOTAL LLM APIs                                                    │ R$ 14.570   │
-└───────────────────────────────────────────────────────────────────┴─────────────┘
+# Tabela de Custos por Milhão de Tokens (Principais LLMs – 2025)
 
-Custos adicionais de infraestrutura:
-- Vector Database (Pinecone/OpenSearch): R$ 500-2.000/mês
-- Compute/Storage/Networking: R$ 1.000-3.000/mês
-- Observability/Monitoring: R$ 200-500/mês
-TOTAL INFRAESTRUTURA: R$ 1.700-5.500/mês
+| Provedor / Modelo             | Input (US$/1M tokens) | Output (US$/1M tokens) | Observações                 |
+|-------------------------------|-----------------------|------------------------|-----------------------------|
+| OpenAI – GPT-3.5 Turbo        | ~$3.00                | ~$6.00                 | Modelo custo-benefício      |
+| OpenAI – GPT-4                | ~$30.00               | ~$60.00                | Premium, maior capacidade   |
+| OpenAI – GPT-4o               | ~$2.50                | ~$10.00                | Omni, multimodal            |
+| OpenAI – GPT-4o mini          | ~$0.15                | ~$0.60                 | Mais barato da OpenAI       |
+| Anthropic – Claude Opus 4     | ~$15.00               | ~$75.00                | Topo de linha da Claude     |
+| Anthropic – Claude Sonnet     | ~$3.00                | ~$15.00                | Equilíbrio custo/desempenho |
+| Anthropic – Claude Haiku      | ~$0.80                | ~$4.00                 | Rápido e leve               |
+| Mistral – Medium 3            | ~$0.40                | ~$2.00                 | Baixo custo, bom desempenho |
 
-CUSTO TOTAL OPERACIONAL: R$ 16.270 - R$ 20.070/mês
 ```
-
-**Base de Cálculo**:
-- GPT-4 Turbo: $10/$30 (input/output por 1M tokens)
-- Claude-3 Opus: $15/$75
-- Claude-3 Sonnet: $3/$15
-- Gemini Pro 1.5: $1.25/$5
-- Taxa câmbio: R$ 5,00/USD
-- Tokens médios: 800-2.500 input, 400-1.200 output por interação
-
 ---
 
 #### **Cenário 9: Chunking Optimization (Otimização de RAG)**
@@ -514,8 +491,6 @@ CUSTO TOTAL OPERACIONAL: R$ 16.270 - R$ 20.070/mês
 - **Políticas de Chargeback**: Prazo + documentos + processo completo
 - **Circulares Bacen**: Artigo completo com parágrafos relacionados
 - **Tabelas de Preços**: Linha completa + header para contexto
-
-**Complexidade**: ⭐⭐⭐ | **Tempo Impl.**: 3-4 semanas | **Custo**: Médio
 
 **Estratégias por Tipo de Documento**:
 ```
@@ -714,20 +689,6 @@ CUSTO TOTAL OPERACIONAL: R$ 16.270 - R$ 20.070/mês
 2. **Cenário 2**: RAG para FAQs e manuais técnicos
 3. **Cenário 6**: Evals básico para garantir qualidade
 
-**Custos Mensais Operacionais**:
-- LLM APIs: R$ 3.000-6.000/mês (volume inicial menor)
-- Infraestrutura: R$ 1.000-2.000/mês
-- **Total**: R$ 4.000-8.000/mês
-
-**Investimento Inicial**:
-- Desenvolvimento: R$ 120-200K (2-3 meses, 2-3 devs)
-- Infra setup: R$ 20-40K
-- **Total**: R$ 140-240K
-
-**Retorno Mensal Esperado**: R$ 80-200K/mês
-- Redução de 30-40% em escalações (base 100K merchants)
-- ROI: 1-3 meses
-
 ---
 
 ### **Strategic Investments (ROI 6-12 meses)**
@@ -735,23 +696,6 @@ CUSTO TOTAL OPERACIONAL: R$ 16.270 - R$ 20.070/mês
 2. **Cenário 4**: Workflows para processos complexos
 3. **Cenário 5**: Multi-agentes para análises críticas
 4. **Cenários 7-9**: Otimização científica
-
-**Custos Mensais Operacionais** (após scale-up):
-- LLM APIs: R$ 14-20K/mês (todos os casos de uso)
-- Infraestrutura: R$ 3-6K/mês
-- **Total**: R$ 17-26K/mês
-
-**Investimento Inicial**:
-- Desenvolvimento: R$ 500-800K (6-9 meses, 4-6 devs)
-- Infra enterprise: R$ 80-120K
-- Consultoria/Treinamento: R$ 100-150K
-- **Total**: R$ 680K-1.07M
-
-**Retorno Mensal Esperado**: R$ 400-800K/mês
-- Redução de 60-70% em escalações
-- Aumento de 30-40% em NPS
-- Processos críticos automatizados
-- ROI: 6-12 meses
 
 ---
 
@@ -766,107 +710,4 @@ CUSTO TOTAL OPERACIONAL: R$ 16.270 - R$ 20.070/mês
 
 ---
 
-## 💰 Apêndice: Detalhamento de Custos (Janeiro 2025)
-
-### Preços de APIs de LLM (USD por 1M tokens)
-
-```
-┌────────────────────┬──────────────┬───────────────┬────────────────┐
-│ Modelo             │ Input/1M     │ Output/1M     │ Use Case       │
-├────────────────────┼──────────────┼───────────────┼────────────────┤
-│ GPT-4 Turbo        │ $10.00       │ $30.00        │ Máxima qualid. │
-│ Claude-3 Opus      │ $15.00       │ $75.00        │ Anti-alucin.   │
-│ Claude-3 Sonnet    │ $3.00        │ $15.00        │ Balance ideal  │
-│ Claude-3 Haiku     │ $0.25        │ $1.25         │ Alto volume    │
-│ Gemini Pro 1.5     │ $1.25        │ $5.00         │ Custo-efetivo  │
-│ Gemini Flash       │ $0.075       │ $0.30         │ Ultra rápido   │
-│ Llama-3.1 70B      │ Gratuito     │ Gratuito      │ Self-hosted    │
-└────────────────────┴──────────────┴───────────────┴────────────────┘
-```
-
-### Exemplo de Cálculo: Atendimento Merchants
-
-**Premissas**:
-- Volume: 200.000 interações/mês
-- Modelo: Claude-3 Sonnet ($3 input / $15 output)
-- Tokens por interação:
-  - Input: 800 tokens (pergunta + contexto RAG + instruções)
-  - Output: 400 tokens (resposta estruturada)
-
-**Cálculo**:
-```
-Input:
-200.000 interações × 800 tokens = 160.000.000 tokens
-160M tokens ÷ 1.000.000 = 160 unidades
-160 × $3.00 = $480 USD
-
-Output:
-200.000 interações × 400 tokens = 80.000.000 tokens
-80M tokens ÷ 1.000.000 = 80 unidades
-80 × $15.00 = $1.200 USD
-
-Total USD: $480 + $1.200 = $1.680/mês
-Total BRL: $1.680 × R$ 5,00 = R$ 8.400/mês
-```
-
-### Custos de Infraestrutura
-
-#### **Vector Database**
-- **ChromaDB** (self-hosted): R$ 500-1.000/mês (compute)
-- **Pinecone** (managed): $70-200/mês (R$ 350-1.000)
-- **AWS OpenSearch**: R$ 1.500-3.000/mês (enterprise)
-
-#### **Compute e Storage**
-- **AWS/GCP/Azure**:
-  - API servers: R$ 800-2.000/mês
-  - Storage (docs/embeddings): R$ 200-500/mês
-  - Networking: R$ 100-300/mês
-
-#### **Observabilidade**
-- **Logs**: R$ 100-200/mês (CloudWatch, Datadog)
-- **Monitoring**: R$ 100-200/mês (Prometheus, Grafana)
-- **Tracing**: R$ 50-100/mês (Jaeger, OpenTelemetry)
-
-### Otimizações de Custo
-
-#### **1. Caching de Embeddings** (-40-60%)
-Vetorização de documentos feita uma vez, reutilizada:
-- Economia: R$ 2.000-4.000/mês em re-processamento
-
-#### **2. Prompt Optimization** (-20-30%)
-Redução de tokens por melhor engenharia de prompts:
-- Economia: R$ 1.500-3.000/mês
-
-#### **3. Modelo Híbrido** (-30-50%)
-- Casos simples: Gemini Flash (ultra barato)
-- Casos médios: Claude-3 Sonnet
-- Casos críticos: GPT-4 / Claude-3 Opus
-- Economia: R$ 4.000-8.000/mês vs usar GPT-4 para tudo
-
-#### **4. Self-Hosting (Llama)** (-80-95%)
-Para dados sensíveis ou altíssimo volume:
-- Custo: Infraestrutura GPU (R$ 5-10K/mês)
-- Economia em API: R$ 10-15K/mês
-- Break-even: >500K interações/mês
-
-### ROI Típico por Escala
-
-#### **100K Merchants**
-- Custo total: R$ 15-20K/mês
-- Escalações evitadas: 18K/mês × R$ 65 = R$ 117K
-- **ROI**: 585% (R$ 97-102K lucro/mês)
-
-#### **500K Merchants**
-- Custo total: R$ 50-65K/mês
-- Escalações evitadas: 90K/mês × R$ 65 = R$ 585K
-- **ROI**: 900% (R$ 520-535K lucro/mês)
-
-#### **1M Merchants**
-- Custo total: R$ 85-110K/mês
-- Escalações evitadas: 180K/mês × R$ 65 = R$ 1.170K
-- **ROI**: 1.064% (R$ 1.060-1.085M lucro/mês)
-
----
-
-**🎯 Próximo Passo**: Escolha o cenário alinhado ao seu caso de uso prioritário e inicie PoC em 2-3 semanas.
 
