@@ -197,6 +197,7 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 1: Chat Simples**
 **Tecnologia**: LLM direto (OpenAI, Anthropic, Google)
+
 **Cases Cielo**: Copilot Chat / Copilot Teams
 
 **Quando Usar**:
@@ -219,6 +220,7 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 2: RAG (Base de Conhecimento)**
 **Tecnologia**: LangChain + Vector DB (Chroma, Pinecone)
+
 **Cases Cielo**: Cici, Guru 
 
 
@@ -248,7 +250,8 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 3: RAG + Tools (Integração)**
 **Tecnologia**: LangChain + Tools + APIs
-**Cases Cielo**: Copilot Chat / Copilot Teams
+
+**Cases Cielo**: Gersão, Agentes ROVO
 
 **Quando Usar**:
 - ✅ Necessita combinar conhecimento interno + dados de sistemas
@@ -280,6 +283,7 @@ Baixa│ 🔰 Cenário 1
 
 #### **Cenário 4: LangGraph (Workflows Condicionais)**
 **Tecnologia**: LangGraph (LangChain extension)
+
 **Cases Cielo**: Chargeback
 
 
@@ -319,6 +323,7 @@ Entrada → Classificação
 
 #### **Cenário 5: CrewAI (Equipe de Agentes Especializados)**
 **Tecnologia**: CrewAI Framework
+
 **Cases Cielo**: Produtos de Prazo (Agno)
 
 

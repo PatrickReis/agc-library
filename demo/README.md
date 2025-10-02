@@ -73,17 +73,18 @@ Cada cenário contém:
 
 ## 📊 Matriz de Complexidade para Adquirência
 
-| Cenário | Complexidade | Caso de Uso Principal | Tempo Impl. | Impacto |
-|---------|--------------|----------------------|-------------|---------|
-| 1       | ⭐           | Atendimento básico merchants | 1-2 semanas | Médio |
-| 2       | ⭐⭐         | Manuais POS + políticas | 2-3 semanas | Alto |
-| 3       | ⭐⭐⭐       | APIs + RAG (transações, cadastro) | 4-6 semanas | Alto |
-| 4       | ⭐⭐⭐⭐     | Workflows (credenciamento, risco) | 6-8 semanas | Muito Alto |
-| 5       | ⭐⭐⭐⭐⭐   | Multi-agentes especializados | 8-12 semanas | Muito Alto |
-| 6       | ⭐⭐         | Validação de qualidade | 3-4 semanas | Médio |
-| 7       | ⭐⭐⭐⭐     | A/B testing e otimização | 4-6 semanas | Alto |
-| 8       | ⭐⭐⭐       | Seleção de modelo por caso de uso | 4-5 semanas | Médio |
-| 9       | ⭐⭐⭐       | Otimização chunking (manuais) | 3-4 semanas | Alto |
+| Cenário | Complexidade | Caso de Uso Principal              | Impacto     |
+|---------|--------------|------------------------------------|-------------|
+| 1       | ⭐           | Atendimento básico merchants       | Médio       |
+| 2       | ⭐⭐         | Manuais POS + políticas            | Alto        |
+| 3       | ⭐⭐⭐       | APIs + RAG (transações, cadastro)  | Alto        |
+| 4       | ⭐⭐⭐⭐     | Workflows (credenciamento, risco)   | Muito Alto  |
+| 5       | ⭐⭐⭐⭐⭐   | Multi-agentes especializados         | Muito Alto  |
+| 6       | ⭐⭐         | Validação de qualidade              | Médio       |
+| 7       | ⭐⭐⭐⭐     | A/B testing e otimização             | Alto        |
+| 8       | ⭐⭐⭐       | Seleção de modelo por caso de uso   | Médio       |
+| 9       | ⭐⭐⭐       | Otimização chunking (manuais)       | Alto        |
+
 
 ## 🚀 Como Executar os Demos
 
@@ -197,55 +198,24 @@ export AWS_SECRET_ACCESS_KEY=sua_chave_secreta
 
 ## 📈 Roadmap de Implementação para Adquirência
 
-### **Fase 1: Quick Wins (Mês 1-2)**
+### **Fase 1: Quick Wins **
 - **Cenários 1-2**: Assistente básico + base de conhecimento
 - **Foco**: Atendimento a merchants (liquidação, terminais POS)
 - **Resultado**: Redução de escalações para atendimento humano
 
-### **Fase 2: Automação com Integração (Mês 2-4)**
+### **Fase 2: Automação com Integração **
 - **Cenário 3**: RAG + APIs (transações, cadastro, CRM)
 - **Foco**: Consultas em tempo real + ações automatizadas
 - **Resultado**: Resolução completa de ponta a ponta
 
-### **Fase 3: Processos Complexos (Mês 4-6)**
+### **Fase 3: Processos Complexos **
 - **Cenários 4-5**: Workflows + Multi-agentes
 - **Foco**: Credenciamento, análise de risco, investigação de fraude
 - **Resultado**: Processos críticos automatizados com qualidade
 
-### **Fase 4: Otimização e Excelência (Mês 6+)**
+### **Fase 4: Otimização e Excelência**
 - **Cenários 6-9**: Evals + A/B testing + Model selection + Chunking
 - **Foco**: Qualidade garantida, otimização científica, custos otimizados
 - **Resultado**: Sistema production-ready de classe mundial
 
-
-### **Recursos de Ajuda**
-
-#### **Documentação**
-- [Guia de Configuração](../README.md)
-- [API Reference](../docs/api/)
-- [Troubleshooting Guide](../docs/troubleshooting.md)
-
-#### **Comunidade**
-- GitHub Issues: Para bugs e features
-
-
-## 🔮 Próximos Passos
-
-### **Começando**
-1. **Escolha seu perfil** (Atendimento, Desenvolvimento, Arquitetura, Liderança)
-2. **Siga a jornada recomendada** para seu perfil
-3. **Leia as explicações executivas** antes de implementar
-4. **Execute os demos** com dados de teste da Cielo
-
-### **Customização para Seu Negócio**
-1. **Adapte exemplos**: Use seus manuais POS, políticas e tabelas comerciais
-2. **Integre APIs reais**: Transações, cadastro, CRM, antifraude
-3. **Implemente Evals**: Valide qualidade com casos reais do seu negócio
-4. **Otimize continuamente**: A/B testing, model selection, chunking
-
-### **Expansões Avançadas para Cielo**
-- **Análise preditiva**: Previsão de chargebacks e fraude
-- **Pricing dinâmico**: Otimização de MDR em tempo real
-- **Customer success**: Análise de satisfação e churn de merchants
-- **Forecast**: Projeções de volume e receita
 
