@@ -137,7 +137,7 @@ Esta apresentação demonstra **9 cenários progressivos**, cada um adicionando 
 **🧠 Cenários Avançados (4-5)**: Orquestração
 - Workflows condicionais → Equipes de especialistas
 
-**🔬 Cenários de Qualidade (6-7)**: Garantia
+**🔬 Cenários de Qualidade (6-7)**: Qualidade
 - Validação sistemática → A/B testing científico
 
 **📊 Cenários de Otimização (8-9)**: Excelência
